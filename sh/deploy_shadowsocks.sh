@@ -1,5 +1,6 @@
 ssh $1 << EOF
 
+apt update
 apt install -y python3-pip 
 pip3 install shadowsocks
 cd /usr/local/lib/python3.5/dist-packages/shadowsocks/crypto

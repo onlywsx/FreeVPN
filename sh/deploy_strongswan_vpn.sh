@@ -22,6 +22,9 @@ scp ss.tar.gz $1:/usr/local/etc/
 scp iptables-save.bk $1:
 
 ssh $1 << EOF
+sed -i -e 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
+sysctl -p
+
 iptables-restore < iptables-save.bk
 cd /usr/local/etc/
 tar zxvf ss.tar.gz
